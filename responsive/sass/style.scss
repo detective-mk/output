@@ -1,0 +1,412 @@
+// ==============================
+// 変数
+// ==============================
+$color_default: #333;
+$color_main: #66327C;
+$color_sub: #8A3061;
+$color_sub2: #FFFBE3;
+
+$fz_small: 12px;
+$fz_default: 16px;
+$fz_xl: 22px;
+$fz_xxl: 26px;
+
+$breakpoints: (
+  'sm': 'screen and (max-width: 414px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// ==============================
+// BASE
+// ==============================
+html, body {
+  line-height: 1.6;
+  width: 100%;
+  color: $color_default;
+  background-color: #f2f2f2;
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+a {
+  color: currentColor;
+  text-decoration: none;
+  transition: .3s;
+  &:hover, &:focus {
+    color: $color_main;
+    transition: .3s;
+  }
+}
+
+ul,li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// ==============================
+// header
+// ==============================
+.ly_header {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  @include mq() {
+    height: 60px;
+  }
+}
+
+.ly_header_inner {
+  width: 1000px;
+  height: inherit;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq() {
+    width: 100%;
+  }
+  @include mq(md) {
+    width: 100%;
+  }
+}
+
+.bl_headerUnit {
+  display: flex;
+  align-items: center;
+}
+
+.bl_header_logo {
+  width: 322px;
+  @include mq() {
+    width: 240px;
+  }
+}
+
+.bl_header_spNav {
+  display: none;
+  z-index: 3;
+  @include mq() {
+    display: block;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    margin-left: auto;
+  }
+  span {
+    @include mq() {
+      transition: all .5s;
+      width: 30px;
+      height: 2px;
+      background: #333;
+      display: block;
+      position: absolute;
+      &:first-child {
+        top: 0;
+      }
+      &:nth-of-type(2) {
+        top: 11px;
+      }
+      &:nth-of-type(3) {
+        bottom: 0;
+      }
+    }
+  }
+  &.is_active span {
+    &:first-child {
+      transform: translateY(10px) rotate(45deg);
+    }
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+    &:nth-of-type(3) {
+      transform: translateY(-12px) rotate(135deg);
+    }
+  }
+}
+
+.bl_headerNavUnit {
+  margin-left: auto;
+  @include mq() {
+    margin-left: 0;
+  }
+}
+
+.bl_headerNav {
+  display: flex;
+  z-index: 2;
+  transition: all .5s;
+  &_item {
+    font-size: $fz_xl;
+    margin-left: 40px;
+    @include mq() {
+      margin-left: 0;
+      margin-bottom: 40px;
+    }
+    @include mq(md) {
+      font-size: 18px;
+      margin-left: 25px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+  @include mq() {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(255, 255, 255, .8);
+    text-align: center;
+    padding-top: 100px;
+    &.is_active {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+// ==============================
+// hero
+// ==============================
+.hero {
+  background-image: url('../img/hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+  @include mq() {
+    height: 300px;
+  }
+}
+
+// ==============================
+// utility
+// ==============================
+.hp_bgWhite {
+  background-color: #fff;
+}
+
+// ==============================
+// container
+// ==============================
+.ly_cont {
+  margin-top: 40px;
+  &:last-child {
+    margin-bottom: 40px;
+  }
+}
+
+
+.ly_container {
+  width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq(md) {
+    width: 100%;
+  }
+}
+
+// ==============================
+// commitment
+// ==============================
+.ly_item {
+  border-radius: 4px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.bl_commitmentUnit {
+  display: flex;
+  @include mq() {
+    flex-direction: column;
+  }
+}
+
+.bl_commitTxt {
+  flex: 1;
+}
+
+.bl_commitTxtHeader {
+  font-size: $fz_xxl;
+  margin-bottom: 20px;
+}
+
+.bl_commitImg {
+  flex: 0 1 48.33333%;
+  margin-right: 3.33333%;
+  @include mq() {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+// ==============================
+// menu
+// ==============================
+.el_ttl02 {
+  font-size: $fz_xxl;
+  padding-bottom: 32px;
+}
+
+.bl_menuUnit {
+  display: flex;
+  justify-content: space-between;
+  @include mq() {
+    flex-direction: column;
+  }
+}
+
+.bl_menu {
+  width: 30%;
+  @include mq() {
+    width: 100%;
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.bl_menu_imgWrapper {
+  border-radius: 50%;
+  width: 168px;
+  height: 168px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.bl_menu_ttl {
+  font-size: $fz_xl;
+  margin-bottom: 16px;
+}
+
+.bl_menu_txt {
+  margin-bottom: 16px;
+}
+
+// ==============================
+// reserve
+// ==============================
+.bl_form_item {
+  margin-bottom: 24px;
+  &:nth-of-type(4) {
+    margin-bottom: 40px;
+  }
+}
+.bl_form_label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.bl_form_input {
+  display: block;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  outline: none;
+  &:focus {
+    border: 2px solid $color_sub;
+  }
+  @include mq() {
+    width: 100%;
+  }
+}
+
+.bl_form_select {
+  display: block;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  &:focus {
+    border: 2px solid $color_sub;
+  }
+  @include mq() {
+    width: 100%;
+  }
+}
+
+.el_submitBtn {
+  background-color: $color_sub;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @include mq() {
+    width: 100%;
+    padding: 15px 20px;
+  }
+}
+
+// ==============================
+// address
+// ==============================
+.bl_addressUnit {
+  display: flex;
+  justify-content: space-between;
+  @include mq() {
+    flex-direction: column;
+  }
+}
+
+.bl_address dl {
+  margin-bottom: 16px;
+}
+
+.bl_address dt, .bl_address dd {
+  display: inline-block;
+}
+
+.bl_map {
+  width: 100%;
+}
+
+
+// ==============================
+// footer
+// ==============================
+.footer {
+  height: 60px;
+  background: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

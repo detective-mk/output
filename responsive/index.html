@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本橋料亭瑞穂</title>
+  <meta name="description" content="架空の料亭のサイトです。">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body>
+  <header class="header ly_header">
+    <div class="ly_header_inner">
+      <div class="bl_headerUnit">
+        <a href="index.html" class="bl_header_logo"><img src="./img/logo.png" alt="日本橋料亭瑞穂"></a>
+        <!-- SP用バーガーメニュー -->
+        <div class="bl_header_spNav js_headerNav_trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="bl_headerNavUnit">
+          <ul class="bl_headerNav js_headerNav_target">
+            <li class="bl_headerNav_item"><a href="#commitment">こだわり</a></li>
+            <li class="bl_headerNav_item"><a href="#menu">メニュー</a></li>
+            <li class="bl_headerNav_item"><a href="#reserve">予約</a></li>
+            <li class="bl_headerNav_item"><a href="#shop">店舗情報</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero"></section>
+    <section id="commitment" class="ly_cont">
+      <div class="ly_container ly_item hp_bgWhite">
+        <div class="bl_commitmentUnit">
+          <figure class="bl_commitImg">
+            <img src="./img/commit.jpg" alt="こだわり">
+          </figure>
+          <div class="bl_commitTxt">
+            <h2 class="bl_commitTxtHeader">こだわり</h2>
+            <p class="bl_commitTxtBody">
+              日本橋の地で創業100年をこえる老舗の料亭です。職人がこだわり抜いた食材を卓越した技術で調理します。味はもちろんのこと、見た目にも美しい料理の数々をご堪能ください。そして、こころゆくまでのおもてなしをいたします。至高のひとときをお過ごしください。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="menu" class="ly_cont">
+      <div class="ly_container ly_item hp_bgWhite">
+        <h2 class="el_ttl02">コース</h2>
+        <div class="bl_menuUnit">
+          <div class="bl_menu">
+            <figure class="bl_menu_imgWrapper">
+              <img src="./img/course_matsu.jpg" alt="松コース">
+            </figure>
+            <p class="bl_menu_ttl">松コース</p>
+            <p class="bl_menu_txt">前菜から水物までこころゆくまでお楽しみいただける内容となっております。</p>
+            <p class="bl_menu_price">価格：10,000円〜</p>
+          </div>
+          <div class="bl_menu">
+            <figure class="bl_menu_imgWrapper">
+              <img src="./img/course_take.jpg" alt="竹コース">
+            </figure>
+            <p class="bl_menu_ttl">竹コース</p>
+            <p class="bl_menu_txt">職人の技術の粋を集めた料理の数々をお楽しみください。</p>
+            <p class="bl_menu_price">価格：25,000円〜</p>
+          </div>
+          <div class="bl_menu">
+            <figure class="bl_menu_imgWrapper">
+              <img src="./img/course_ume.jpg" alt="梅コース">
+            </figure>
+            <p class="bl_menu_ttl">梅コース</p>
+            <p class="bl_menu_txt">旬の食材をふんだんに使用した贅沢なコースです。</p>
+            <p class="bl_menu_price">価格：30,000円〜</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="reserve" class="ly_cont">
+      <div class="ly_container ly_item hp_bgWhite">
+        <h2 class="el_ttl02">予約</h2>
+        <form action="" method="post">
+          <ul class="bl_form">
+            <li class="bl_form_item">
+              <label for="name" class="bl_form_label">お名前</label>
+              <input type="text" id="name" name="name" class="bl_form_input">
+            </li>
+            <li class="bl_form_item">
+              <label for="email" class="bl_form_label">email</label>
+              <input type="email" id="email" name="email" class="bl_form_input">
+            </li>
+            <li class="bl_form_item">
+              <label for="tel" class="bl_form_label">電話番号</label>
+              <input type="text" id="tel" name="tel" class="bl_form_input">
+            </li>
+            <li class="bl_form_item">
+              <label for="course" class="bl_form_label">希望のコース</label>
+              <div class="bl_form_selectInner">
+                <select name="course" id="course" class="bl_form_select">
+                  <option value="1">松コース</option>
+                  <option value="2">梅コース</option>
+                  <option value="3">竹コース</option>
+                  <option value="4">その他</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <button class="el_submitBtn">送信</button>
+            </li>
+          </ul>
+        </form>
+    </section>
+    <section id="shop" class="ly_cont">
+      <div class="ly_container ly_item hp_bgWhite">
+        <h2 class="el_ttl02">店舗情報</h2>
+        <div class="bl_addressUnit">
+          <div class="bl_address">
+            <dl>
+              <dt>住所：</dt>
+              <dd>東京都日本橋1丁目1番地</dd>
+            </dl>
+            <dl>
+              <dt>電話番号：</dt>
+              <dd>03-1234-5678</dd>
+            </dl>
+            <dl>
+              <dt>定休日：</dt>
+              <dd>水曜日</dd>
+            </dl>
+          </div>
+          <div class="bl_map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.659850745005!2d139.77258215175834!3d35.68537663009613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889541fb732bf%3A0x937163996ffff5bf!2z44CSMTAzLTAwMjIg5p2x5Lqs6YO95Lit5aSu5Yy65pel5pys5qmL5a6k55S677yR5LiB55uu!5e0!3m2!1sja!2sjp!4v1613655474832!5m2!1sja!2sjp"
+              width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+              tabindex="0"></iframe>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="footer ly_footer">
+    <div class="ly_footer_inner">
+      <small>&copy; 2021 K.M</small>
+    </div>
+  </footer>
+
+</body>
+
+</html>
