@@ -276,7 +276,12 @@ img {
 // ==============================
 .el_ttl02 {
   font-size: $fz_xxl;
-  padding-bottom: 32px;
+  color: $color_main;/*文字色*/
+  padding: .5em 0;/*上下の余白*/
+  border-top: solid 3px $color_main;/*上線*/
+  border-bottom: solid 3px $color_main;/*下線*/
+  margin-bottom: 30px;
+  display: inline-block;
 }
 
 .bl_menuUnit {
@@ -395,7 +400,10 @@ img {
 }
 
 .bl_map {
-  width: 100%;
+  width: 70%;
+  @include mq() {
+    width: 100%;
+  }
 }
 
 

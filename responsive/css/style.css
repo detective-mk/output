@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body {
   line-height: 1.6;
   width: 100%;
@@ -264,7 +265,16 @@ img {
 
 .el_ttl02 {
   font-size: 26px;
-  padding-bottom: 32px;
+  color: #66327C;
+  /*文字色*/
+  padding: .5em 0;
+  /*上下の余白*/
+  border-top: solid 3px #66327C;
+  /*上線*/
+  border-bottom: solid 3px #66327C;
+  /*下線*/
+  margin-bottom: 30px;
+  display: inline-block;
 }
 
 .bl_menuUnit {
@@ -400,7 +410,13 @@ img {
 }
 
 .bl_map {
-  width: 100%;
+  width: 70%;
+}
+
+@media screen and (max-width: 414px) {
+  .bl_map {
+    width: 100%;
+  }
 }
 
 .footer {
