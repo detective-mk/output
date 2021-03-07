@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+}
+
+img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.el_title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.ly_cont {
+  width: 980px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+.ly_mainArea {
+  margin-top: 100px;
+}
+
+.ly_startContents {
+  margin: 200px auto;
+  text-align: center;
+}
+
+.bl_battleArea {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.bl_myArea, .bl_opponentArea {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 20px;
+}
+
+.bl_name {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.bl_janken {
+  padding: 20px;
+  text-align: center;
+}
+
+.bl_janken img {
+  width: 100px;
+  height: 100px;
+}
+
+.bl_hp {
+  text-align: center;
+}
+
+.el_vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.bl_logArea {
+  padding: 10px;
+  border: 1px solid #333;
+  margin-top: 80px;
+  overflow-y: scroll;
+  min-height: 200px;
+}
+
+.bl_subTitle {
+  margin: 100px 0 70px;
+  text-align: center;
+}
+
+.bl_btnArea {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.el_btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.hp_mt40 {
+  margin-top: 40px;
+}
