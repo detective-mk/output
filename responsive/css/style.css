@@ -49,8 +49,6 @@ img {
 .ly_header_inner {
   width: 1000px;
   height: inherit;
-  padding-left: 20px;
-  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -58,6 +56,7 @@ img {
 @media screen and (max-width: 414px) {
   .ly_header_inner {
     width: 100%;
+    padding-right: 20px;
   }
 }
 
@@ -217,6 +216,7 @@ img {
   padding-right: 20px;
   margin-right: auto;
   margin-left: auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 768px) {
@@ -257,9 +257,7 @@ img {
 
 @media screen and (max-width: 414px) {
   .bl_commitImg {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 20px;
+    display: none;
   }
 }
 
