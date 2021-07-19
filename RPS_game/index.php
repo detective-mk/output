@@ -7,6 +7,7 @@ $hands = array('グー', 'チョキ', 'パー');
 $opponents = array();
 $playerHandImg = '';
 $opponentHandImg = '';
+$gameOverFlg = false;
 
 // クラス設計
 //================================
@@ -100,14 +101,18 @@ function createOpponent()
 function init()
 {
   History::clear();
-  History::set('初期化します');
+  History::set('初期化しました');
   $_SESSION['knockDownCount'] = 0;
+  global $gameOverFlg;
+  $gameOverFlg = false;
   createPlayer();
   createOpponent();
 }
 
 function gameOver()
 {
+  global $gameOverFlg;
+  $gameOverFlg = true;
   $_SESSION = array();
 }
 
@@ -258,8 +263,9 @@ if (!empty($_POST)) {
       } else {
         if ($_SESSION['opponent']->getHp() <= 0) {
           History::set($_SESSION['opponent']->getName() . 'が倒れた！');
-          createOpponent();
           $_SESSION['knockDownCount'] = $_SESSION['knockDownCount'] + 1;
+          createOpponent();
+          History::set($_SESSION['opponent']->getName() . 'が現れた！');
         }
       }
     }
@@ -282,51 +288,60 @@ if (!empty($_POST)) {
 <body>
   <div class="ly_cont">
     <h1 class="el_title">じゃんけんゲーム</h1>
-    <?php if (empty($_SESSION)) { ?>
-      <form action="" method="post">
-        <div class="ly_startContents">
-          <button class="el_btn" value="start" name="start">ゲームスタート！</button>
-        </div>
-      </form>
+    <?php if ($gameOverFlg) { ?>
+      <h2 class="bl_subTitle" style="color: #bf0000">ゲームオーバー</h2>
+      <div class="ly_gameOverContents">
+        <form action="" method="post">
+          <button class="el_btn" value="start" name="start">もう1度始める</button>
+        </form>
+      </div>
     <?php } else { ?>
-      <div class="ly_mainArea">
-        <div class="bl_battleArea">
-          <div class="bl_myArea">
-            <p class="bl_name">自分</p>
-            <?php if ($choiceFlg) { ?>
-              <figure class="bl_janken">
-                <img src="<?php echo $playerHandImg ?>" alt="">
-              </figure>
-            <?php } ?>
-            <p class="bl_hp">自分の残りHP:<?php echo $_SESSION['player']->getHp() ?></p>
-            <p class="bl_hp">倒した相手の数:<?php echo $_SESSION['knockDownCount'] ?></p>
+      <?php if (empty($_SESSION)) { ?>
+        <form action="" method="post">
+          <div class="ly_startContents">
+            <button class="el_btn" value="start" name="start">ゲームスタート！</button>
           </div>
-          <p class="el_vs">vs</p>
-          <div class="bl_opponentArea">
-            <p class="bl_name"><?php echo $_SESSION['opponent']->getName() ?></p>
-            <?php if ($choiceFlg) { ?>
-              <figure class="bl_janken">
-                <img src="<?php echo $opponentHandImg ?>" alt="">
-              </figure>
-            <?php } ?>
-            <p class="bl_hp">相手の残りHP:<?php echo $_SESSION['opponent']->getHp() ?></p>
+        </form>
+      <?php } else { ?>
+        <div class="ly_mainArea">
+          <div class="bl_battleArea">
+            <div class="bl_myArea">
+              <p class="bl_name">自分</p>
+              <?php if ($choiceFlg) { ?>
+                <figure class="bl_janken">
+                  <img src="<?php echo $playerHandImg ?>" alt="">
+                </figure>
+              <?php } ?>
+              <p class="bl_hp">自分の残りHP:<?php echo $_SESSION['player']->getHp() ?></p>
+              <p class="bl_hp">倒した相手の数:<?php echo $_SESSION['knockDownCount'] ?></p>
+            </div>
+            <p class="el_vs">vs</p>
+            <div class="bl_opponentArea">
+              <p class="bl_name"><?php echo $_SESSION['opponent']->getName() ?></p>
+              <?php if ($choiceFlg) { ?>
+                <figure class="bl_janken">
+                  <img src="<?php echo $opponentHandImg ?>" alt="">
+                </figure>
+              <?php } ?>
+              <p class="bl_hp">相手の残りHP:<?php echo $_SESSION['opponent']->getHp() ?></p>
+            </div>
           </div>
         </div>
-      </div>
-      <h2 class="bl_subTitle">どれをだす？</h2>
-      <form action="" method="post">
-        <div class="bl_btnArea">
-          <button class="el_btn js_btn_gu" name="choice" value="グー">グー</button>
-          <button class="el_btn js_btn_choki" name="choice" value="チョキ">チョキ</button>
-          <button class="el_btn js_btn_pa" name="choice" value="パー">パー</button>
+        <h2 class="bl_subTitle">どれをだす？</h2>
+        <form action="" method="post">
+          <div class="bl_btnArea">
+            <button class="el_btn js_btn_gu" name="choice" value="グー">グー</button>
+            <button class="el_btn js_btn_choki" name="choice" value="チョキ">チョキ</button>
+            <button class="el_btn js_btn_pa" name="choice" value="パー">パー</button>
+          </div>
+        </form>
+        <form action="" method="post">
+          <button class="el_btn hp_mt40" name="start" value="start">最初からやり直す</button>
+        </form>
+        <div class="bl_logArea">
+          <p class="el_log"><?php echo $_SESSION['history'] ?></p>
         </div>
-      </form>
-      <form action="" method="post">
-        <button class="el_btn hp_mt40" name="start" value="start">最初からやり直す</button>
-      </form>
-      <div class="bl_logArea">
-        <p class="el_log"><?php echo $_SESSION['history'] ?></p>
-      </div>
+      <?php } ?>
     <?php } ?>
   </div>
 </body>
