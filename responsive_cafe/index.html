@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M.K cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5de566ddd6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <section class="mv">
+    <header class="header">
+      <h1 class="header__logo">M.K cafe</h1>
+      <nav>
+        <ul class="header__menu">
+          <li class="headerMenu__item"><a href="#news">News</a></li>
+          <li class="headerMenu__item"><a href="#concept">Concept</a></li>
+          <li class="headerMenu__item"><a href="#menu">Menu</a></li>
+          <li class="headerMenu__item"><a href="#infoAccess">Info/Access</a></li>
+        </ul>
+      </nav>
+      <div class="spMenu">
+        <div class="spMenu__inner">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  </section>
+  <section id="news" class="news">
+    <div class="container">
+      <h2 class="heading">
+        <span class="mainTitle">News</span>
+        <span class="subTitle">おしらせ</span>
+      </h2>
+      <ul class="newsSec">
+        <li class="newsItem">
+          <a href="#">
+            <dl class="newsItem__inner">
+              <dt class="newsItem__date">2021.07.01</dt>
+              <dd class="newsItem__title">夏季休暇のお知らせ</dd>
+            </dl>
+          </a>
+        </li>
+        <li class="newsItem">
+          <a href="#">
+            <dl class="newsItem__inner">
+              <dt class="newsItem__date">2021.06.16</dt>
+              <dd class="newsItem__title">新メニュー発売！</dd>
+            </dl>
+          </a>
+        </li>
+        <li class="newsItem">
+          <a href="#">
+            <dl class="newsItem__inner">
+              <dt class="newsItem__date">2021.04.29</dt>
+              <dd class="newsItem__title">GW期間中の営業について</dd>
+            </dl>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="concept" class="concept">
+    <h2 class="heading">
+      <span class="mainTitle">Concept</span>
+      <span class="subTitle">こだわり</span>
+    </h2>
+    <div class="concept__inner">
+      <picture>
+        <source srcset="img/concept_sp.jpeg" media="(max-width: 414px)" class="concept__imgSp">
+        <img src="img/concept_pc.jpg" alt="" class="concept__imgPc">
+      </picture>
+      <div class="concept__textBg">
+        <p class="concept__txt">こだわりぬいたコーヒ豆を使用し、お客さまに至高のコーヒをお届けします。<br>
+          落ち着いた環境でコーヒーとお食事をお楽しみください。</p>
+      </div>
+      <div class="circle"></div>
+    </div>
+  </section>
+  <section id="menu" class="menu">
+    <div class="container">
+      <h2 class="heading">
+        <span class="mainTitle">Menu</span>
+        <span class="subTitle">メニュー</span>
+      </h2>
+      <ul class="menu__inner">
+        <li class="menu__item">
+          <dl>
+            <dt class="menu__img"><img src="./img/menu/black-coffee.jpg" alt="レギュラーコーヒー（S）"></dt>
+            <dd class="menu__name">レギュラーコーヒー（S）</dd>
+            <dd class="menu__price">250円</dd>
+          </dl>
+        </li>
+        <li class="menu__item">
+          <dl>
+            <dt class="menu__img"><img src="./img/menu/cafe_aulait.jpeg" alt="カフェラテ（S）"></dt>
+            <dd class="menu__name">カフェラテ（S）</dd>
+            <dd class="menu__price">300円</dd>
+          </dl>
+        </li>
+        <li class="menu__item">
+          <dl>
+            <dt class="menu__img"><img src="./img/menu/matcha-green-tea.jpeg" alt="抹茶ラテ（S）"></dt>
+            <dd class="menu__name">抹茶ラテ（S）</dd>
+            <dd class="menu__price">350円</dd>
+          </dl>
+        </li>
+        <li class="menu__item">
+          <dl>
+            <dt class="menu__img"><img src="./img/menu/apple-pie.jpg" alt="アップルパイ"></dt>
+            <dd class="menu__name">アップルパイ</dd>
+            <dd class="menu__price">500円</dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="infoAccess" class="infoAccess">
+    <div class="container">
+      <h2 class="heading">
+        <span class="mainTitle">Info/Access</span>
+        <span class="subTitle">店舗情報/アクセス</span>
+      </h2>
+      <div class="infoAccess__inner">
+        <table class="infoTable">
+          <tr>
+            <td style="vertical-align: top;">営業時間</td>
+            <td style="vertical-align: top;">月〜土　7：00〜19：00<br>※日曜定休</td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td>長野県白馬村1-4-7</td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td>026-151-1111</td>
+          </tr>
+        </table>
+        <div class="google-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1599.5722757228882!2d137.8628954680694!3d36.695064168286486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7d2037835433f%3A0x3c5a1a90a222429f!2z44CSMzk5LTkzMDEg6ZW36YeO55yM5YyX5a6J5puH6YOh55m96aas5p2R6JWo5bmz77yW77yR77yU77yS!5e0!3m2!1sja!2sjp!4v1627910338958!5m2!1sja!2sjp"
+            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer_sns">
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-instagram-square"></i>
+    </div>
+    <small class="footer_copyright">&copy; 2021 K.M</small>
+  </footer>
+</body>
+
+</html>
