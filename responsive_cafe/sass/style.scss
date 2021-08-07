@@ -196,12 +196,12 @@ nav {
 .container {
   width: 980px;
   margin: 0 auto;
-  @include mq() {
+  @include mq(md) {
     width: 100%;
     padding-left: 16px;
     padding-right: 16px;
   }
-  @include mq(md) {
+  @include mq() {
     width: 100%;
     padding-left: 16px;
     padding-right: 16px;
@@ -285,18 +285,23 @@ nav {
   margin: 80px auto 0;
   position: relative;
   width: 800px;
-  @include mq(){
-    margin-top: 24px;
-    width: 100%;
-  }
   @include mq(md) {
     width: 600px;
     margin: 80px auto 0;
   }
+  @include mq(){
+    margin-top: 40px;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
-.concept__imgPc {
+.concept__img {
   width: 70%;
+  @include mq() {
+    width: 65%;
+  }
 }
 
 .concept__textBg {
@@ -309,24 +314,18 @@ nav {
   font-size: 1.4rem;
   width: 470px;
   box-shadow:  0 3px 8px rgba(0, 0, 0, .2);
-  @include mq(){
-    top: 0;
-    right: 0;
-    left: unset;
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding:0 16px 0 0;
-    background-color: #fff;
-    box-shadow: none;
-    font-size: 1rem;
-  }
   @include mq(md) {
     font-size: 1.2rem;
     width: 360px;
     top: -15%;
     left: 45%;
+  }
+  @include mq(){
+    width: 50%;
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    padding: 16px;
   }
 }
 
@@ -334,18 +333,6 @@ nav {
   vertical-align: middle;
 }
 
-.circle {
-  @include mq(){
-    position: absolute;
-    top: 0;
-    left: 44%;
-    background-color: #ffffff;
-    width: 60px;
-    height: 343px;
-    margin-right: -30px;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-  }
-}
 
 // ==============================
 // menu
@@ -452,4 +439,20 @@ nav {
 .footer_copyright {
   margin-top: 24px;
   display: inline-block;
+}
+
+// ==============================
+// animation
+// ==============================
+.animation {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  transform: translateY(30px);
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }

@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 $(function () {
   $('.spMenu__inner').on('click', function () {
     $(this).toggleClass('active');
@@ -13,4 +15,14 @@ $(function () {
     });
   }
 
+  $(window).on('load scroll', function () {
+    $('.animation').each(function () {
+      let target = $(this).offset().top;
+      let scroll = $(window).scrollTop();
+      let height = $(window).height();
+      if (scroll > target - height) {
+        $(this).addClass('active');
+      }
+    });
+  });
 });

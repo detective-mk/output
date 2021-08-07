@@ -174,7 +174,7 @@ nav {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .container {
     width: 100%;
     padding-left: 16px;
@@ -182,7 +182,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .container {
     width: 100%;
     padding-left: 16px;
@@ -270,13 +270,6 @@ nav {
   width: 800px;
 }
 
-@media screen and (max-width: 414px) {
-  .concept__inner {
-    margin-top: 24px;
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .concept__inner {
     width: 600px;
@@ -284,8 +277,23 @@ nav {
   }
 }
 
-.concept__imgPc {
+@media screen and (max-width: 414px) {
+  .concept__inner {
+    margin-top: 40px;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+.concept__img {
   width: 70%;
+}
+
+@media screen and (max-width: 414px) {
+  .concept__img {
+    width: 65%;
+  }
 }
 
 .concept__textBg {
@@ -300,22 +308,6 @@ nav {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 414px) {
-  .concept__textBg {
-    top: 0;
-    right: 0;
-    left: unset;
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px 0 0;
-    background-color: #fff;
-    box-shadow: none;
-    font-size: 1rem;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .concept__textBg {
     font-size: 1.2rem;
@@ -325,21 +317,18 @@ nav {
   }
 }
 
-.concept__txt {
-  vertical-align: middle;
+@media screen and (max-width: 414px) {
+  .concept__textBg {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    padding: 16px;
+  }
 }
 
-@media screen and (max-width: 414px) {
-  .circle {
-    position: absolute;
-    top: 0;
-    left: 44%;
-    background-color: #ffffff;
-    width: 60px;
-    height: 343px;
-    margin-right: -30px;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-  }
+.concept__txt {
+  vertical-align: middle;
 }
 
 .menu {
@@ -453,4 +442,17 @@ nav {
 .footer_copyright {
   margin-top: 24px;
   display: inline-block;
+}
+
+.animation {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  transform: translateY(30px);
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
