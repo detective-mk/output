@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけんゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="game">
+    <div class="score">
+      <div class="scoreBoard">
+        <h2 class="playerName">Player</h2>
+        <p class="player-score">0</p>
+        <p class="player-hp">HP：<span>100</span></p>
+      </div>
+      <div class="scoreBoard">
+        <h2 class="computerName">Computer</h2>
+        <p class="computer-score">0</p>
+        <p class="computer-hp">HP：<span>100</span></p>
+      </div>
+    </div>
+    <div class="intro">
+      <h1>じゃんけんゲーム</h1>
+      <button>あそぶ</button>
+    </div>
+    <div class="match fadeOut">
+      <h2 class="winner">何を出す？</h2>
+      <div class="hands">
+        <img class="player-hand" src="assets/paper.png" alt="">
+        <img class="computer-hand" src="assets/paper.png" alt="">
+      </div>
+      <div class="options">
+        <button class="rock">グー</button>
+        <button class="scissors">チョキ</button>
+        <button class="paper">パー</button>
+      </div>
+    </div>
+    <div class="result fadeOut">
+      <h2>ゲームオーバー</h2>
+      <button class="restart">もう一度遊ぶ</button>
+    </div>
+  </section>
+  <script src="app.js"></script>
+</body>
+
+</html>
