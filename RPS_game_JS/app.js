@@ -60,7 +60,7 @@ const game = () => {
   const compareHands = (playerChoice, computerChoice) => {
     const winner = document.querySelector('.winner');
     if (playerChoice === computerChoice) {
-      winner.textContent = '引き分け';
+      winner.textContent = 'あいこ';
       return;
     }
     // Check for Rock
