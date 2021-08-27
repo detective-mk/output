@@ -191,26 +191,10 @@ var game = function () {
     const restartBtn = document.querySelector('.restart');
 
     restartBtn.addEventListener('click', () => {
-      init();
-
-      playerScore.textContent = player.getScore();
-      computerScore.textContent = computer.getScore();
-      playerHp.textContent = player.getHp();
-      computerHp.textContent = computer.getHp();
-
-      resultArea.classList.remove('fadeIn');
-      resultArea.classList.add('fadeOut');
-      intro.classList.add('fadeIn');
-      winner.textContent = '何を出す？';
+      location.reload();
     });
   }
 
-  const init = () => {
-    player.setScore(0);
-    player.setHp(100);
-    computer.setScore(0);
-    computer.setHp(100);
-  };
 
   const createComputer = () => {
     computers.shift();
