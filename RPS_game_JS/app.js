@@ -1,39 +1,40 @@
 var game = function () {
-  var Player = function (name, score, hp) {
-    this.name = name;
-    this.score = score;
-    this.hp = hp;
-  }
+  class Player {
+    constructor(name, score, hp) {
+      this.name = name;
+      this.score = score;
+      this.hp = hp;
+    }
 
-  Player.prototype = {
-    getName: function () {
+    getName() {
       return this.name;
-    },
-    setName: function (arr) {
+    }
+    setName(arr) {
       this.name = arr;
-    },
-    getHp: function () {
-      return this.hp;
-    },
-    setHp: function (num) {
-      this.hp = num;
-    },
-    getScore: function () {
+    }
+    getScore() {
       return this.score;
-    },
-    setScore: function (num) {
-      this.score = num
+    }
+    setScore(num) {
+      this.score = num;
+    }
+    getHp() {
+      return this.hp;
+    }
+    setHp(num) {
+      this.hp = num;
     }
   }
 
-  var player = new Player('Player', 0, 100);
-  var computers = [];
+
+  let player = new Player('Player', 0, 100);
+  let computers = [];
   computers.push(new Player('Computer1', 0, 100));
   computers.push(new Player('Computer2', 0, 100));
   computers.push(new Player('Computer3', 0, 100));
   computers.push(new Player('Computer4', 0, 100));
   computers.push(new Player('Computer5', 0, 100));
-  var computer = computers[0];
+  let computer = computers[0];
 
   // Selectors
   const playerScore = document.querySelector('.player-score');
@@ -191,26 +192,9 @@ var game = function () {
     const restartBtn = document.querySelector('.restart');
 
     restartBtn.addEventListener('click', () => {
-      init();
-
-      playerScore.textContent = player.getScore();
-      computerScore.textContent = computer.getScore();
-      playerHp.textContent = player.getHp();
-      computerHp.textContent = computer.getHp();
-
-      resultArea.classList.remove('fadeIn');
-      resultArea.classList.add('fadeOut');
-      intro.classList.add('fadeIn');
-      winner.textContent = '何を出す？';
+      location.reload();
     });
   }
-
-  const init = () => {
-    player.setScore(0);
-    player.setHp(100);
-    computer.setScore(0);
-    computer.setHp(100);
-  };
 
   const createComputer = () => {
     computers.shift();
