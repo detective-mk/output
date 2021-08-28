@@ -1,8 +1,42 @@
-const game = () => {
-  let pScore = 0;
-  let cScore = 0;
-  let pHp = 100;
-  let cHp = 100;
+var game = function () {
+  class Player {
+    constructor(name, score, hp) {
+      this.name = name;
+      this.score = score;
+      this.hp = hp;
+    }
+
+    getName() {
+      return this.name;
+    }
+    setName(arr) {
+      this.name = arr;
+    }
+    getScore() {
+      return this.score;
+    }
+    setScore(num) {
+      this.score = num;
+    }
+    getHp() {
+      return this.hp;
+    }
+    setHp(num) {
+      this.hp = num;
+    }
+  }
+
+
+  let player = new Player('Player', 0, 100);
+  let computers = [];
+  computers.push(new Player('Computer1', 0, 100));
+  computers.push(new Player('Computer2', 0, 100));
+  computers.push(new Player('Computer3', 0, 100));
+  computers.push(new Player('Computer4', 0, 100));
+  computers.push(new Player('Computer5', 0, 100));
+  let computer = computers[0];
+
+  // Selectors
   const playerScore = document.querySelector('.player-score');
   const computerScore = document.querySelector('.computer-score');
   const playerHp = document.querySelector('.player-hp span');
@@ -10,7 +44,9 @@ const game = () => {
   const resultArea = document.querySelector('.result');
   const match = document.querySelector('.match');
   const intro = document.querySelector('.intro');
+  const winner = document.querySelector('.winner');
 
+  // Functions
   const startGame = () => {
     const startBtn = document.querySelector('.intro button');
     startBtn.addEventListener('click', () => {
@@ -53,12 +89,12 @@ const game = () => {
   }
 
   const updateScore = () => {
-    playerScore.textContent = pScore;
-    computerScore.textContent = cScore;
+    playerScore.textContent = player.getScore();
+    computerScore.textContent = computer.getScore();
   }
 
   const compareHands = (playerChoice, computerChoice) => {
-    const winner = document.querySelector('.winner');
+
     if (playerChoice === computerChoice) {
       winner.textContent = 'あいこ';
       return;
@@ -67,13 +103,13 @@ const game = () => {
     if (playerChoice === 'rock') {
       if (computerChoice === 'scissors') {
         winner.textContent = 'Playerの勝ち！';
-        pScore++;
+        player.setScore(player.getScore() + 1);
         updateScore();
         attack('computer');
         return;
       } else {
         winner.textContent = 'Computerの勝ち！';
-        cScore++;
+        computer.setScore(computer.getScore() + 1);
         updateScore();
         attack('player');
         return;
@@ -83,13 +119,13 @@ const game = () => {
     if (playerChoice === 'paper') {
       if (computerChoice === 'scissors') {
         winner.textContent = 'Computerの勝ち！';
-        cScore++;
+        computer.setScore(computer.getScore() + 1);
         updateScore();
         attack('player');
         return;
       } else {
         winner.textContent = 'Playerの勝ち！';
-        pScore++;
+        player.setScore(player.getScore() + 1);
         updateScore();
         attack('computer');
         return;
@@ -99,13 +135,13 @@ const game = () => {
     if (playerChoice === 'scissors') {
       if (computerChoice === 'paper') {
         winner.textContent = 'Playerの勝ち！';
-        pScore++;
+        player.setScore(player.getScore() + 1);
         updateScore();
         attack('computer');
         return;
       } else {
         winner.textContent = 'Computerの勝ち！';
-        cScore++;
+        computer.setScore(computer.getScore() + 1);
         updateScore();
         attack('player');
         return;
@@ -114,33 +150,34 @@ const game = () => {
   }
 
   const attack = (target) => {
-    const attackMin = 90;
-    const attackMax = 100;
+    const attackMin = 30;
+    const attackMax = 50;
 
-    let attackPoint = (attackMin, attackMax) => {
+    let attackPointFunc = (attackMin, attackMax) => {
       return Math.floor(Math.random() * (attackMax + 1 - attackMin) + attackMin);
     }
 
+    attackPoint = attackPointFunc(attackMin, attackMax);
+
     if (target === 'player') {
-      playerHp.textContent = pHp - attackPoint(attackMin, attackMax);
-      pHp = playerHp.textContent;
-      if (pHp < 0) {
-        pHp = 0;
+      player.setHp(player.getHp() - attackPoint);
+      playerHp.textContent = player.getHp();
+      if (player.getHp() < 0) {
+        player.setHp(0);
         playerHp.textContent = 0;
       }
     } else {
-      computerHp.textContent = cHp - attackPoint(attackMin, attackMax);
-      cHp = computerHp.textContent;
-      createComputer();
-      // if (cHp < 0) {
-      //   cHp = 0;
-      //   computerHp.textContent = 0;
-      // }
+      computer.setHp(computer.getHp() - attackPoint);
+      computerHp.textContent = computer.getHp();
+      if (computer.getHp() < 0) {
+        computerHp.textContent = 0;
+        createComputer();
+      }
     }
   }
 
   const result = () => {
-    if (pHp <= 0) {
+    if (player.getHp() <= 0) {
       match.classList.remove('fadeIn');
       intro.classList.remove('fadeIn');
       setTimeout(() => {
@@ -155,33 +192,22 @@ const game = () => {
     const restartBtn = document.querySelector('.restart');
 
     restartBtn.addEventListener('click', () => {
-      pScore = 0;
-      cScore = 0;
-      pHp = 100;
-      cHp = 100;
-      playerScore.textContent = pScore;
-      computerScore.textContent = cScore;
-      playerHp.textContent = pHp;
-      computerHp.textContent = cHp;
-
-      resultArea.classList.remove('fadeIn');
-      resultArea.classList.add('fadeOut');
-      intro.classList.add('fadeIn');
+      location.reload();
     });
   }
 
   const createComputer = () => {
+    computers.shift();
+    computer = computers[0];
     const computerName = document.querySelector('.computerName');
-    if (cHp < 0) {
-      computerName.textContent = 'Computer2';
-      cHp = 100;
-      computerHp.textContent = cHp;
-    }
+
+    computerName.textContent = computer.getName();
+    computerScore.textContent = computer.getScore();
+    computerHp.textContent = computer.getHp();
   }
 
   startGame();
   playMatch();
 
 }
-
 game();
